@@ -24,12 +24,12 @@ curve_z = SubResource("Curve_0xm2m")
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(407.99997, 511)
+position = Vector2(414, 516)
 scale = Vector2(1.6699219, 1171.9999)
 texture = SubResource("CurveXYZTexture_h2yge")
 
 [node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(289, 349)
+position = Vector2(292, 325)
 scale = Vector2(0.07540725, 0.07540724)
 texture = ExtResource("1_ig7tw")
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkyn6wn28py76"
-path="res://.godot/imported/26669-1-finish-line-hd-thumb-646128615.png-13625b132967aafc64d764673199409e.ctex"
+uid="uid://cudxdjywpba25"
+path="res://.godot/imported/finish_line.png-05ec9f189f40a8a9fc665386757cd76b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://26669-1-finish-line-hd-thumb-646128615.png"
-dest_files=["res://.godot/imported/26669-1-finish-line-hd-thumb-646128615.png-13625b132967aafc64d764673199409e.ctex"]
+source_file="res://finish_line.png"
+dest_files=["res://.godot/imported/finish_line.png-05ec9f189f40a8a9fc665386757cd76b.ctex"]
 
 [params]
 
