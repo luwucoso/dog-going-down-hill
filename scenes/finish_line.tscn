@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://owx25idh75vn"]
+
+[ext_resource type="Texture2D" uid="uid://dkyn6wn28py76" path="res://26669-1-finish-line-hd-thumb-646128615.png" id="1_ojfi3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m6nd"]
+size = Vector2(132, 128)
+
+[node name="Main" type="Node2D"]
+scale = Vector2(1.7955929, 1)
+
+[node name="finish_line_sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(3.2859917, 2.98234)
+texture = ExtResource("1_ojfi3")
+
+[node name="Area2D" type="Area2D" parent="finish_line_sprite"]
+position = Vector2(0, 8.047374)
+scale = Vector2(1.5495641, -0.116063625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finish_line_sprite/Area2D"]
+shape = SubResource("RectangleShape2D_5m6nd")
