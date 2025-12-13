@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://flikp7qgdhqt"]
+[gd_scene load_steps=14 format=3 uid="uid://flikp7qgdhqt"]
 
 [ext_resource type="PackedScene" uid="uid://cg2be47y81ln2" path="res://Untitled.blend" id="1_bu00g"]
 [ext_resource type="Texture2D" uid="uid://dcq8t1n6e3i0q" path="res://krita/fence/fence_frame0001.png" id="3_5qht6"]
@@ -6,26 +6,49 @@
 [ext_resource type="Texture2D" uid="uid://dly6n1sf0c5iu" path="res://krita/fence/fence_frame0002.png" id="4_w42fm"]
 [ext_resource type="Texture2D" uid="uid://d4m22k4tnwijc" path="res://doggo.png" id="5_w42fm"]
 [ext_resource type="Script" uid="uid://bodi8bltyl0j7" path="res://scripts/hero_controller.gd" id="6_ki6e3"]
+[ext_resource type="Script" uid="uid://bks2rd3fi14s0" path="res://scripts/obstacles_controller.gd" id="7_n1b3i"]
+[ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="8_bm2go"]
+[ext_resource type="Script" uid="uid://uee7a1kwr5id" path="res://scripts/level_loader.gd" id="9_tyl8m"]
+[ext_resource type="PackedScene" uid="uid://cseplt54b6sbm" path="res://main.tscn" id="10_2qyw1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2qyw1"]
+radius = 1.8044484
+
+[sub_resource type="Curve" id="Curve_2qyw1"]
+_limits = [0.0, 0.6, -6.0, 25.0]
+_data = [Vector2(5.557804, 0.26647666), 0.0, 0.0, 0, 0, Vector2(25, 0), -0.01452338, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2qyw1"]
 
 [node name="3dMain" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.47110426, 0.8820775, 0, -0.8820775, 0.47110426, 0, 13.035212, 42.759968)
+transform = Transform3D(1, 0, 0, 0, 0.4711043, 0.8820776, 0, -0.8820776, 0.4711043, -6.584358, 13.035212, 42.759968)
 sky_mode = 1
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.0633953e-08, 0.36857888, -0.9295965, 1.6111095e-08, 0.9295965, 0.36857888, 1, 0, -4.371139e-08, 5.5, 7.537656, 0)
-current = true
-
 [node name="Player" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.946709, 1.9049368, 0.18153691)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 billboard = 1
+double_sided = false
 texture = ExtResource("5_w42fm")
 
-[node name="Untitled" parent="." instance=ExtResource("1_bu00g")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 4.8331184, 0)
+[node name="Untitled" parent="Player" instance=ExtResource("1_bu00g")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.584358, 2.8331184, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(-4.0633953e-08, 0.36857888, -0.9295965, 1.6111095e-08, 0.9295965, 0.36857888, 1, 0, -4.371139e-08, -5.5, 5.5, 0)
+current = true
+
+[node name="collision" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0258226, 0.010887861, 0.30296493)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/collision"]
+shape = SubResource("SphereShape3D_2qyw1")
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.50438, 0, 0)
 
 [node name="Sprite3D2" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 9.184624, 2.3893414, -6.8805847)
@@ -65,8 +88,39 @@ transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 18.113428, 2.3893414
 flip_h = true
 texture = ExtResource("4_w42fm")
 
-[node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+[node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("sprite", "collision")]
 script = ExtResource("6_ki6e3")
 sprite = NodePath("../Player")
-debug_speed = 5.0
+collision = NodePath("../Player/collision")
+debug_speed = 15.0
 metadata/_custom_type_script = "uid://bodi8bltyl0j7"
+
+[node name="ObstraclesController" type="Node" parent="."]
+script = ExtResource("7_n1b3i")
+x_position_scale = SubResource("Curve_2qyw1")
+metadata/_custom_type_script = "uid://bks2rd3fi14s0"
+
+[node name="rock" type="Sprite3D" parent="."]
+transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, -4, 0, 2)
+offset = Vector2(0, 1000)
+pixel_size = 0.003
+billboard = 1
+double_sided = false
+texture = ExtResource("8_bm2go")
+
+[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller")]
+script = ExtResource("9_tyl8m")
+level_scene = ExtResource("10_2qyw1")
+obstacles_controller = NodePath("../ObstraclesController")
+metadata/_custom_type_script = "uid://uee7a1kwr5id"
+
+[node name="walls" type="Area3D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.922562, 7.7970295)
+shape = SubResource("WorldBoundaryShape3D_2qyw1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 8.922562, -6.714277)
+shape = SubResource("WorldBoundaryShape3D_2qyw1")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cseplt54b6sbm"]
+[gd_scene load_steps=10 format=3 uid="uid://cseplt54b6sbm"]
 
+[ext_resource type="Script" uid="uid://c5rw8lof5k5w4" path="res://scripts/level_scene.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://j8o6hyx2lj7j" path="res://tree.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://dlwbk7mohms20" path="res://flag.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://d4m22k4tnwijc" path="res://doggo.png" id="5_lquwl"]
 
 [sub_resource type="Curve" id="Curve_7dm0k"]
 _data = [Vector2(1, 0.6516854), 0.0, 0.0, 0, 0]
@@ -21,29 +23,36 @@ curve_x = SubResource("Curve_7dm0k")
 curve_y = SubResource("Curve_ig7tw")
 curve_z = SubResource("Curve_0xm2m")
 
-[node name="Node2D" type="Node2D"]
+[node name="LevelScene" type="Node2D"]
+script = ExtResource("1_1bvp3")
+metadata/_custom_type_script = "uid://c5rw8lof5k5w4"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(414, 516)
-scale = Vector2(1.6699219, 1171.9999)
+[node name="bounds" type="Sprite2D" parent="."]
+position = Vector2(2.0980835e-05, -588)
+scale = Vector2(2.4999998, 1176)
 texture = SubResource("CurveXYZTexture_h2yge")
 
-[node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(292, 325)
-scale = Vector2(0.07540725, 0.07540724)
+[node name="Tree2" type="Sprite2D" parent="."]
+position = Vector2(128, -208)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_ig7tw")
 
-[node name="Tree2" type="Sprite2D" parent="."]
-position = Vector2(516, 803)
-scale = Vector2(0.07540725, 0.07540724)
+[node name="Tree3" type="Sprite2D" parent="."]
+position = Vector2(-128, -408)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_ig7tw")
 
 [node name="Rock" type="Sprite2D" parent="."]
-position = Vector2(518, 63)
+position = Vector2(-7.9999924, -864)
 scale = Vector2(0.041405868, 0.041405886)
 texture = ExtResource("2_0xm2m")
 
 [node name="Flag" type="Sprite2D" parent="."]
-position = Vector2(521, 486.00003)
+position = Vector2(96, -672.00006)
 scale = Vector2(0.083398946, 0.0833989)
 texture = ExtResource("3_h2yge")
+
+[node name="Doggo" type="Sprite2D" parent="."]
+position = Vector2(8, -16)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_lquwl")
