@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://flikp7qgdhqt"]
+[gd_scene load_steps=6 format=3 uid="uid://flikp7qgdhqt"]
 
 [ext_resource type="PackedScene" uid="uid://cg2be47y81ln2" path="res://Untitled.blend" id="1_bu00g"]
-[ext_resource type="Texture2D" uid="uid://j8o6hyx2lj7j" path="res://tree.png" id="2_ixs3u"]
+[ext_resource type="Texture2D" uid="uid://dcq8t1n6e3i0q" path="res://krita/fence/fence_frame0001.png" id="3_5qht6"]
+[ext_resource type="Texture2D" uid="uid://dnhl6s75p84mi" path="res://krita/fence/fence_frame0000.png" id="3_a2x2b"]
+[ext_resource type="Texture2D" uid="uid://dly6n1sf0c5iu" path="res://krita/fence/fence_frame0002.png" id="4_w42fm"]
+[ext_resource type="Texture2D" uid="uid://d4m22k4tnwijc" path="res://doggo.png" id="5_w42fm"]
 
 [node name="3dMain" type="Node3D"]
 
@@ -16,8 +19,45 @@ sky_mode = 1
 transform = Transform3D(-4.0633953e-08, 0.36857888, -0.9295965, 1.6111095e-08, 0.9295965, 0.36857888, 1, 0, -4.371139e-08, 5.5, 7.537656, 0)
 current = true
 
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 9.184624, 2.3893414, -6.8805847)
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 12.086898, 2.4503746, -6.8805847)
+flip_h = true
+flip_v = true
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 15.389992, 2.3893414, -6.8805847)
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 18.113428, 2.3893414, -6.8805847)
+flip_h = true
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D6" type="Sprite3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 9.184624, 2.3893414, 7.7558556)
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 12.086898, 2.4503746, 7.7558556)
+flip_h = true
+flip_v = true
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D8" type="Sprite3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 15.389992, 2.3893414, 7.7558556)
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D9" type="Sprite3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 18.113428, 2.3893414, 7.7558556)
+flip_h = true
+texture = ExtResource("4_w42fm")
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.368351, 3.292347, -7.9416466)
-pixel_size = 0.003
-billboard = 1
-texture = ExtResource("2_ixs3u")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.743814, 1.9049368, -1.8167181)
+billboard = 2
+texture = ExtResource("5_w42fm")
