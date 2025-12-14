@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://flikp7qgdhqt"]
+[gd_scene load_steps=15 format=3 uid="uid://flikp7qgdhqt"]
 
 [ext_resource type="PackedScene" uid="uid://cg2be47y81ln2" path="res://Untitled.blend" id="1_bu00g"]
 [ext_resource type="Texture2D" uid="uid://dcq8t1n6e3i0q" path="res://krita/fence/fence_frame0001.png" id="3_5qht6"]
@@ -10,13 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="8_bm2go"]
 [ext_resource type="Script" uid="uid://uee7a1kwr5id" path="res://scripts/level_loader.gd" id="9_tyl8m"]
 [ext_resource type="PackedScene" uid="uid://cseplt54b6sbm" path="res://main.tscn" id="10_2qyw1"]
+[ext_resource type="Script" uid="uid://dk5abxpobi3ek" path="res://scripts/sizing_controller.gd" id="11_abgm2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2qyw1"]
 radius = 1.8044484
 
-[sub_resource type="Curve" id="Curve_2qyw1"]
-_limits = [0.0, 0.6, -6.0, 25.0]
-_data = [Vector2(5.557804, 0.26647666), 0.0, 0.0, 0, 0, Vector2(25, 0), -0.01452338, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_abgm2"]
+_limits = [0.0, 0.6, -6.0, 30.0]
+_data = [Vector2(19.595375, 0.19532502), 0.0, 0.0, 0, 0, Vector2(30, 0), -0.0031273502, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2qyw1"]
@@ -47,45 +48,332 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/collision"]
 shape = SubResource("SphereShape3D_2qyw1")
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.50438, 0, 0)
+[node name="right" type="Node3D" parent="."]
 
-[node name="Sprite3D2" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 9.184624, 2.3893414, -6.8805847)
+[node name="Sprite3D6" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.3197565, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
 texture = ExtResource("3_a2x2b")
 
-[node name="Sprite3D3" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 12.086898, 2.4503746, -6.8805847)
+[node name="Sprite3D7" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 2.5825176, 0, 7.7558556)
+offset = Vector2(0, 252)
 flip_h = true
 flip_v = true
+pixel_size = 0.0315
 texture = ExtResource("3_5qht6")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 15.389992, 2.3893414, -6.8805847)
+[node name="Sprite3D8" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 5.8856115, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
 texture = ExtResource("3_a2x2b")
 
-[node name="Sprite3D5" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 18.113428, 2.3893414, -6.8805847)
+[node name="Sprite3D9" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 8.609048, 0, 7.7558556)
+offset = Vector2(0, 252)
 flip_h = true
+pixel_size = 0.0315
 texture = ExtResource("4_w42fm")
 
-[node name="Sprite3D6" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 9.184624, 2.3893414, 7.7558556)
+[node name="Sprite3D22" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 11.665889, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
 texture = ExtResource("3_a2x2b")
 
-[node name="Sprite3D7" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 12.086898, 2.4503746, 7.7558556)
+[node name="Sprite3D23" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 14.568162, 0, 7.7558556)
+offset = Vector2(0, 252)
 flip_h = true
 flip_v = true
+pixel_size = 0.0315
 texture = ExtResource("3_5qht6")
 
-[node name="Sprite3D8" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 15.389992, 2.3893414, 7.7558556)
+[node name="Sprite3D24" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 17.871258, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
 texture = ExtResource("3_a2x2b")
 
-[node name="Sprite3D9" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 18.113428, 2.3893414, 7.7558556)
+[node name="Sprite3D25" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 20.594692, 0, 7.7558556)
+offset = Vector2(0, 252)
 flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D26" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 23.788242, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D27" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 26.690514, 0, 7.7558556)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D28" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 29.99361, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D29" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 32.717045, 0, 7.7558556)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D30" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 36.025085, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D31" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 38.927357, 0, 7.7558556)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D32" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 42.230453, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D33" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 44.953888, 0, 7.7558556)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D38" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 48.302273, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D39" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 51.204544, 0, 7.7558556)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D40" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 54.507645, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D41" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 57.23108, 0, 7.7558556)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D46" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 60.531746, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D47" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 63.43402, 0, 7.7558556)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D48" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 66.73712, 0, 7.7558556)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D49" type="Sprite3D" parent="right"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 69.460556, 0, 7.7558556)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="left" type="Node3D" parent="."]
+
+[node name="Sprite3D2" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.82492065, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D3" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 2.0773535, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D4" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 5.3804474, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D5" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 8.103884, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D10" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 11.345238, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D11" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 14.247513, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D12" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 17.550606, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D13" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 20.274044, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D14" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 23.53733, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D15" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 26.439606, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D16" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 29.742699, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D17" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 32.466137, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D18" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 35.7016, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D19" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 38.603874, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D20" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 41.906967, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D21" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 44.630405, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D34" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 47.978786, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D35" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 50.88106, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D36" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 54.18416, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D37" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 56.907593, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("4_w42fm")
+
+[node name="Sprite3D42" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 60.20826, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D43" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 63.110535, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+flip_v = true
+pixel_size = 0.0315
+texture = ExtResource("3_5qht6")
+
+[node name="Sprite3D44" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 66.41363, 0, -6.8805847)
+offset = Vector2(0, 252)
+pixel_size = 0.0315
+texture = ExtResource("3_a2x2b")
+
+[node name="Sprite3D45" type="Sprite3D" parent="left"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 69.13706, 0, -6.8805847)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
 texture = ExtResource("4_w42fm")
 
 [node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("sprite", "collision")]
@@ -95,10 +383,15 @@ collision = NodePath("../Player/collision")
 debug_speed = 15.0
 metadata/_custom_type_script = "uid://bodi8bltyl0j7"
 
-[node name="ObstraclesController" type="Node" parent="."]
+[node name="ObstraclesController" type="Node" parent="." node_paths=PackedStringArray("sizing_controller")]
 script = ExtResource("7_n1b3i")
-x_position_scale = SubResource("Curve_2qyw1")
+sizing_controller = NodePath("../SizingController")
 metadata/_custom_type_script = "uid://bks2rd3fi14s0"
+
+[node name="SizingController" type="Node" parent="."]
+script = ExtResource("11_abgm2")
+x_position_scale = SubResource("Curve_abgm2")
+metadata/_custom_type_script = "uid://dk5abxpobi3ek"
 
 [node name="rock" type="Sprite3D" parent="."]
 transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, -4, 0, 2)

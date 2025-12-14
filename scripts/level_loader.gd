@@ -15,8 +15,8 @@ func load_obstacles(from: Array[Node]):
 		node.double_sided = false
 		node.offset.y = 1000
 		node.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		node.position.x = -texture_node.position.y / 16
-		node.position.z = texture_node.position.x / 16
+		node.position.x = -texture_node.position.y / Global.scale_modifier
+		node.position.z = texture_node.position.x / Global.scale_modifier
 		add_sibling.call_deferred(node)
 		obstacles_controller.add_obstacle(node)
 
