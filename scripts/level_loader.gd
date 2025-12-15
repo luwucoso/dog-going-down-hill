@@ -23,8 +23,8 @@ func load_obstacles(from: Array[Node]):
 		obstacles_controller.add_obstacle(node)
 
 func make_barrier(level: LevelScene) -> void:
-	left_wall_collision.position.z = level.bounds.position.x / Global.scale_modifier
-	right_wall_collision.position.z = level.bounds.end.x / Global.scale_modifier
+	#left_wall_collision.position.z = level.bounds.position.x / Global.scale_modifier
+	#right_wall_collision.position.z = level.bounds.end.x / Global.scale_modifier
 	pass
 
 func _ready() -> void:
