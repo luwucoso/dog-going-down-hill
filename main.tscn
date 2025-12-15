@@ -1,51 +1,50 @@
-[gd_scene load_steps=10 format=3 uid="uid://cseplt54b6sbm"]
+[gd_scene load_steps=9 format=3 uid="uid://cseplt54b6sbm"]
 
 [ext_resource type="Script" uid="uid://c5rw8lof5k5w4" path="res://scripts/level_scene.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://j8o6hyx2lj7j" path="res://tree.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bm3hbd6ygyvte" path="res://scripts/obstacle.gd" id="3_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dlwbk7mohms20" path="res://flag.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://d4m22k4tnwijc" path="res://doggo.png" id="5_lquwl"]
 
-[sub_resource type="Curve" id="Curve_7dm0k"]
-_data = [Vector2(1, 0.6516854), 0.0, 0.0, 0, 0]
-point_count = 1
+[sub_resource type="Gradient" id="Gradient_7mycd"]
+colors = PackedColorArray(0.52511823, 0.5165763, 0.61617017, 1, 0.52511823, 0.5165763, 0.61617017, 1)
 
-[sub_resource type="Curve" id="Curve_ig7tw"]
-_data = [Vector2(1, 0.75280905), 0.0, 0.0, 0, 0]
-point_count = 1
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_272bh"]
+gradient = SubResource("Gradient_7mycd")
+width = 1
 
-[sub_resource type="Curve" id="Curve_0xm2m"]
-_data = [Vector2(1, 0.75280905), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_h2yge"]
-curve_x = SubResource("Curve_7dm0k")
-curve_y = SubResource("Curve_ig7tw")
-curve_z = SubResource("Curve_0xm2m")
-
-[node name="LevelScene" type="Node2D"]
+[node name="LevelScene" type="Node2D" node_paths=PackedStringArray("bounds_node")]
 script = ExtResource("1_1bvp3")
+bounds_node = NodePath("bounds")
 metadata/_custom_type_script = "uid://c5rw8lof5k5w4"
 
 [node name="bounds" type="Sprite2D" parent="."]
-position = Vector2(2.0980835e-05, -588)
-scale = Vector2(2.4999998, 1176)
-texture = SubResource("CurveXYZTexture_h2yge")
+position = Vector2(-512, -1472.0001)
+scale = Vector2(1024, 1472.0001)
+texture = SubResource("GradientTexture1D_272bh")
+centered = false
 
-[node name="Tree2" type="Sprite2D" parent="."]
-position = Vector2(128, -208)
+[node name="Obstacle" type="Sprite2D" parent="."]
+position = Vector2(448, -192)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_ig7tw")
+script = ExtResource("3_7mycd")
+metadata/_custom_type_script = "uid://bm3hbd6ygyvte"
 
-[node name="Tree3" type="Sprite2D" parent="."]
-position = Vector2(-128, -408)
+[node name="Obstacle2" type="Sprite2D" parent="."]
+position = Vector2(-440, -448)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_ig7tw")
+script = ExtResource("3_7mycd")
+metadata/_custom_type_script = "uid://bm3hbd6ygyvte"
 
-[node name="Rock" type="Sprite2D" parent="."]
-position = Vector2(-7.9999924, -864)
-scale = Vector2(0.041405868, 0.041405886)
+[node name="Obstacle3" type="Sprite2D" parent="."]
+position = Vector2(-8.000002, -992)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_0xm2m")
+script = ExtResource("3_7mycd")
+metadata/_custom_type_script = "uid://bm3hbd6ygyvte"
 
 [node name="Flag" type="Sprite2D" parent="."]
 position = Vector2(96, -672.00006)

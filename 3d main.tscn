@@ -42,7 +42,7 @@ transform = Transform3D(-4.0633953e-08, 0.36857888, -0.9295965, 1.6111095e-08, 0
 current = true
 
 [node name="collision" type="Area3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0258226, 0.010887861, 0.30296493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0258226, 0.010887861, -0.23120403)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/collision"]
@@ -394,26 +394,28 @@ x_position_scale = SubResource("Curve_abgm2")
 metadata/_custom_type_script = "uid://dk5abxpobi3ek"
 
 [node name="rock" type="Sprite3D" parent="."]
-transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, -4, 0, 2)
+transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, -4, 0, 0)
 offset = Vector2(0, 1000)
 pixel_size = 0.003
 billboard = 1
 double_sided = false
 texture = ExtResource("8_bm2go")
 
-[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller")]
+[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller", "left_wall_collision", "right_wall_collision")]
 script = ExtResource("9_tyl8m")
 level_scene = ExtResource("10_2qyw1")
 obstacles_controller = NodePath("../ObstraclesController")
+left_wall_collision = NodePath("../walls/left_wall_collision")
+right_wall_collision = NodePath("../walls/right_wall_collision")
 metadata/_custom_type_script = "uid://uee7a1kwr5id"
 
 [node name="walls" type="Area3D" parent="."]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.922562, 7.7970295)
+[node name="right_wall_collision" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.923, 7.697)
 shape = SubResource("WorldBoundaryShape3D_2qyw1")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls"]
+[node name="left_wall_collision" type="CollisionShape3D" parent="walls"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 8.922562, -6.714277)
 shape = SubResource("WorldBoundaryShape3D_2qyw1")

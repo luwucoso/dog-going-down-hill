@@ -5,7 +5,8 @@ class_name LevelScene extends Node2D
 var bounds: Rect2
 
 func _ready() -> void:
-	bounds = bounds_node.get_rect();
+	assert(bounds_node, "needs bounds!")
+	bounds = bounds_node.get_rect().abs();
 	bounds_node.free();
 
 func get_left_boundary_start() -> Vector2:
