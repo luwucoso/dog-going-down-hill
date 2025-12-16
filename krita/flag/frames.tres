@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cd46i7gf3mfg"]
+
+[ext_resource type="Texture2D" uid="uid://bkyl12go56xf2" path="res://krita/flag/frame0000.png" id="1_vrxqi"]
+[ext_resource type="Texture2D" uid="uid://ub403gf7fv4u" path="res://krita/flag/frame0003.png" id="2_wh5vy"]
+[ext_resource type="Texture2D" uid="uid://cem6uh58efeo4" path="res://krita/flag/frame0006.png" id="3_vpvde"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vrxqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wh5vy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vpvde")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]

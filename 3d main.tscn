@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://flikp7qgdhqt"]
+[gd_scene load_steps=12 format=3 uid="uid://flikp7qgdhqt"]
 
 [ext_resource type="ArrayMesh" uid="uid://begc6r0paod3" path="res://cone.obj.res" id="2_abgm2"]
 [ext_resource type="Texture2D" uid="uid://d4m22k4tnwijc" path="res://doggo.png" id="5_w42fm"]
 [ext_resource type="Script" uid="uid://bodi8bltyl0j7" path="res://scripts/hero_controller.gd" id="6_ki6e3"]
 [ext_resource type="Script" uid="uid://bks2rd3fi14s0" path="res://scripts/obstacles_controller.gd" id="7_n1b3i"]
+[ext_resource type="SpriteFrames" uid="uid://cd46i7gf3mfg" path="res://krita/flag/frames.tres" id="8_bm2go"]
 [ext_resource type="Script" uid="uid://uee7a1kwr5id" path="res://scripts/level_loader.gd" id="9_tyl8m"]
 [ext_resource type="PackedScene" uid="uid://cseplt54b6sbm" path="res://main.tscn" id="10_2qyw1"]
 [ext_resource type="Script" uid="uid://dk5abxpobi3ek" path="res://scripts/sizing_controller.gd" id="11_abgm2"]
@@ -81,3 +82,12 @@ shape = SubResource("WorldBoundaryShape3D_2qyw1")
 [node name="left_wall_collision" type="CollisionShape3D" parent="walls"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 8.922562, -6.714277)
 shape = SubResource("WorldBoundaryShape3D_2qyw1")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 9.446827, 0, 0)
+offset = Vector2(0, 700)
+pixel_size = 0.02
+billboard = 1
+double_sided = false
+sprite_frames = ExtResource("8_bm2go")
+frame_progress = 0.41448417
