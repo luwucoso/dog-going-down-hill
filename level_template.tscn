@@ -1,17 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cseplt54b6sbm"]
+[gd_scene load_steps=8 format=3 uid="uid://cseplt54b6sbm"]
 
 [ext_resource type="Script" uid="uid://c5rw8lof5k5w4" path="res://scripts/level_scene.gd" id="1_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://j8o6hyx2lj7j" path="res://tree.png" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://bm3hbd6ygyvte" path="res://scripts/obstacle.gd" id="3_7mycd"]
-[ext_resource type="Texture2D" uid="uid://dlwbk7mohms20" path="res://flag.png" id="3_h2yge"]
-[ext_resource type="Texture2D" uid="uid://d4m22k4tnwijc" path="res://doggo.png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="2_x24lp"]
+[ext_resource type="Script" uid="uid://bm3hbd6ygyvte" path="res://scripts/obstacle.gd" id="3_smkg2"]
+[ext_resource type="Texture2D" uid="uid://j8o6hyx2lj7j" path="res://tree.png" id="4_smkg2"]
+[ext_resource type="Texture2D" uid="uid://dlwbk7mohms20" path="res://flag.png" id="5_626v6"]
 
-[sub_resource type="Gradient" id="Gradient_7mycd"]
+[sub_resource type="Gradient" id="Gradient_yqaxe"]
 colors = PackedColorArray(0.52511823, 0.5165763, 0.61617017, 1, 0.52511823, 0.5165763, 0.61617017, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_272bh"]
-gradient = SubResource("Gradient_7mycd")
+gradient = SubResource("Gradient_yqaxe")
 width = 1
 
 [node name="LevelScene" type="Node2D" node_paths=PackedStringArray("bounds_node")]
@@ -20,34 +19,152 @@ bounds_node = NodePath("bounds")
 metadata/_custom_type_script = "uid://c5rw8lof5k5w4"
 
 [node name="bounds" type="Sprite2D" parent="."]
-position = Vector2(-384, -2400)
-scale = Vector2(768, 2400)
+position = Vector2(-384, -3757)
+scale = Vector2(768, 3757)
 texture = SubResource("GradientTexture1D_272bh")
 centered = false
 
-[node name="Obstacle2" type="Sprite2D" parent="."]
-position = Vector2(-264, -472)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_ig7tw")
+[node name="Obstacle" type="Sprite2D" parent="."]
+position = Vector2(197.99998, -275.99997)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("2_x24lp")
 offset = Vector2(0, -1200)
-script = ExtResource("3_7mycd")
+script = ExtResource("3_smkg2")
+template = "Rock"
+
+[node name="Obstacle13" type="Sprite2D" parent="."]
+position = Vector2(-297, -2677.9998)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("2_x24lp")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Rock"
+
+[node name="Obstacle14" type="Sprite2D" parent="."]
+position = Vector2(-158.00002, -2672.0002)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("2_x24lp")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Rock"
+
+[node name="Obstacle15" type="Sprite2D" parent="."]
+position = Vector2(341.99994, -2661.0002)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("2_x24lp")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Rock"
+
+[node name="Obstacle16" type="Sprite2D" parent="."]
+position = Vector2(86.000015, -2433)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("2_x24lp")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Rock"
+
+[node name="Obstacle2" type="Sprite2D" parent="."]
+position = Vector2(137, -1876.9999)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("4_smkg2")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
 template = "Tree"
 pixel_size_3d = 0.023
-metadata/_custom_type_script = "uid://bm3hbd6ygyvte"
+
+[node name="Obstacle6" type="Sprite2D" parent="."]
+position = Vector2(-307.99997, -1204)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("4_smkg2")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Tree"
+pixel_size_3d = 0.023
+
+[node name="Obstacle7" type="Sprite2D" parent="."]
+position = Vector2(30.999939, -1204)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("4_smkg2")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Tree"
+pixel_size_3d = 0.023
+
+[node name="Obstacle8" type="Sprite2D" parent="."]
+position = Vector2(259, -698)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("4_smkg2")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Tree"
+pixel_size_3d = 0.023
+
+[node name="Obstacle9" type="Sprite2D" parent="."]
+position = Vector2(-257.99994, -442)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("4_smkg2")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Tree"
+pixel_size_3d = 0.023
+
+[node name="Obstacle10" type="Sprite2D" parent="."]
+position = Vector2(-320.00003, -2327.0002)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("4_smkg2")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Tree"
+pixel_size_3d = 0.023
+
+[node name="Obstacle11" type="Sprite2D" parent="."]
+position = Vector2(302.9999, -2266.0002)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("4_smkg2")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Tree"
+pixel_size_3d = 0.023
+
+[node name="Obstacle12" type="Sprite2D" parent="."]
+position = Vector2(81.000015, -2277)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("4_smkg2")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Tree"
+pixel_size_3d = 0.023
 
 [node name="Obstacle3" type="Sprite2D" parent="."]
-position = Vector2(231.99997, -1000)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_0xm2m")
-script = ExtResource("3_7mycd")
-metadata/_custom_type_script = "uid://bm3hbd6ygyvte"
+position = Vector2(-186, -882.00006)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("2_x24lp")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Rock"
+pixel_size_3d = 0.005
+
+[node name="Obstacle4" type="Sprite2D" parent="."]
+position = Vector2(89.99997, -1801)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("2_x24lp")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Rock"
+pixel_size_3d = 0.005
+
+[node name="Obstacle5" type="Sprite2D" parent="."]
+position = Vector2(176.00002, -1792)
+scale = Vector2(0.08212815, 0.08212815)
+texture = ExtResource("2_x24lp")
+offset = Vector2(0, -1200)
+script = ExtResource("3_smkg2")
+template = "Rock"
+pixel_size_3d = 0.005
 
 [node name="Flag" type="Sprite2D" parent="."]
-position = Vector2(168, -680)
-scale = Vector2(0.083398946, 0.0833989)
-texture = ExtResource("3_h2yge")
-
-[node name="Doggo" type="Sprite2D" parent="."]
-position = Vector2(8, -16)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_lquwl")
+position = Vector2(161, -2049)
+scale = Vector2(0.12122691, 0.12122691)
+texture = ExtResource("5_626v6")
+script = ExtResource("3_smkg2")

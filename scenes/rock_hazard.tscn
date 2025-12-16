@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://da5l1dvyif78p"]
+[gd_scene load_steps=4 format=3 uid="uid://da5l1dvyif78p"]
 
+[ext_resource type="Script" uid="uid://bm3hbd6ygyvte" path="res://scripts/obstacle.gd" id="1_6chmj"]
 [ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="1_uptxv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sasex"]
@@ -8,6 +9,7 @@ radius = 8.676486
 [node name="rock" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_6chmj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 scale = Vector2(0.04826847, 0.04826847)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcuvpnfiw5puo"]
+
+[ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="1_e73ws"]
+[ext_resource type="Script" uid="uid://c5rw8lof5k5w4" path="res://scripts/level_scene.gd" id="1_vbogn"]
+
+[sub_resource type="Gradient" id="Gradient_a617u"]
+colors = PackedColorArray(0.52511823, 0.5165763, 0.61617017, 1, 0.52511823, 0.5165763, 0.61617017, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vbogn"]
+gradient = SubResource("Gradient_a617u")
+width = 1
+
+[node name="Level_test" type="Node2D" node_paths=PackedStringArray("bounds_node")]
+script = ExtResource("1_vbogn")
+bounds_node = NodePath("bounds")
+
+[node name="bounds" type="Sprite2D" parent="."]
+position = Vector2(-384, -2400)
+scale = Vector2(768, 2400)
+texture = SubResource("GradientTexture1D_vbogn")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(170, -544)
+scale = Vector2(0.051396236, 0.051396236)
+texture = ExtResource("1_e73ws")

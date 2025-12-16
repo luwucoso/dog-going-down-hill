@@ -7,10 +7,22 @@ const TEMPLATES: Dictionary = {
 		"pixelsize" = 0.023,
 		"yoffset3d" = 1000,
 		"yoffset2d" = -1200,
+	},
+	"Rock": {
+		"texture" = preload("res://rock.png"),
+		"pixelsize" = 0.005,
+		"yoffset3d" = 1000,
+		"yoffset2d" = -1200,
+	},
+	"Flag": {
+		"texture" = preload("res://flag.png"),
+		"pixelsize" = 0.05,
+		"yoffset3d" = 1000,
+		"yoffset2d" = -1200,
 	}
 }
 
-@export_enum("None", "Tree", "Rock")
+@export_enum("None", "Tree", "Rock", "Flag")
 var template = "None":
 	set(new): template = new; template_set(new)
 
