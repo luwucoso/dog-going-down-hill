@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bamddbktpqhd5"]
+
+[ext_resource type="Texture2D" uid="uid://dly6n1sf0c5iu" path="res://krita/fence/fence_frame0002.png" id="1_rhs4x"]
+
+[node name="Sprite3D9" type="Sprite3D"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 0, 0, 0)
+offset = Vector2(0, 252)
+flip_h = true
+pixel_size = 0.0315
+texture = ExtResource("1_rhs4x")

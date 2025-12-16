@@ -6,7 +6,9 @@ var bounds: Rect2
 
 func _ready() -> void:
 	assert(bounds_node, "needs bounds!")
-	bounds = bounds_node.get_rect().abs();
+	bounds = bounds_node.get_rect();
+	bounds.position += bounds_node.position
+	bounds.size *= bounds_node.scale
 	bounds_node.free();
 
 func get_left_boundary_start() -> Vector2:
