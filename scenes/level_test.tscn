@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcuvpnfiw5puo"]
+[gd_scene load_steps=7 format=3 uid="uid://bcuvpnfiw5puo"]
 
 [ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="1_e73ws"]
 [ext_resource type="Script" uid="uid://c5rw8lof5k5w4" path="res://scripts/level_scene.gd" id="1_vbogn"]
+[ext_resource type="Texture2D" uid="uid://j8o6hyx2lj7j" path="res://tree.png" id="2_plvai"]
+[ext_resource type="Script" uid="uid://bm3hbd6ygyvte" path="res://scripts/obstacle.gd" id="3_vkcgd"]
 
 [sub_resource type="Gradient" id="Gradient_a617u"]
 colors = PackedColorArray(0.52511823, 0.5165763, 0.61617017, 1, 0.52511823, 0.5165763, 0.61617017, 1)
@@ -10,7 +12,7 @@ colors = PackedColorArray(0.52511823, 0.5165763, 0.61617017, 1, 0.52511823, 0.51
 gradient = SubResource("Gradient_a617u")
 width = 1
 
-[node name="Level_test" type="Node2D" node_paths=PackedStringArray("bounds_node")]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("bounds_node")]
 script = ExtResource("1_vbogn")
 bounds_node = NodePath("bounds")
 
@@ -20,7 +22,62 @@ scale = Vector2(768, 2400)
 texture = SubResource("GradientTexture1D_vbogn")
 centered = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(170, -544)
-scale = Vector2(0.051396236, 0.051396236)
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(-364, -13)
+scale = Vector2(0.04183633, 0.04183633)
+texture = ExtResource("2_plvai")
+offset = Vector2(0, -1200)
+script = ExtResource("3_vkcgd")
+template = "Tree"
+pixel_size_3d = 0.023
+collision_circle_radius = 100.0
+
+[node name="Tree2" type="Sprite2D" parent="."]
+position = Vector2(-330, -11.000001)
+scale = Vector2(0.04183633, 0.04183633)
+texture = ExtResource("2_plvai")
+offset = Vector2(0, -1200)
+script = ExtResource("3_vkcgd")
+template = "Tree"
+pixel_size_3d = 0.023
+collision_circle_radius = 100.0
+
+[node name="Tree3" type="Sprite2D" parent="."]
+position = Vector2(-286.00003, -12)
+scale = Vector2(0.04183633, 0.04183633)
+texture = ExtResource("2_plvai")
+offset = Vector2(0, -1200)
+script = ExtResource("3_vkcgd")
+template = "Tree"
+pixel_size_3d = 0.023
+collision_circle_radius = 100.0
+
+[node name="Rock" type="Sprite2D" parent="."]
+position = Vector2(265.00003, -74.00001)
+scale = Vector2(0.019841786, 0.019841786)
 texture = ExtResource("1_e73ws")
+offset = Vector2(0, -1200)
+script = ExtResource("3_vkcgd")
+template = "Rock"
+pixel_size_3d = 0.005
+collision_circle_radius = 100.0
+
+[node name="Rock2" type="Sprite2D" parent="."]
+position = Vector2(323, -100)
+scale = Vector2(0.019841786, 0.019841786)
+texture = ExtResource("1_e73ws")
+offset = Vector2(0, -1200)
+script = ExtResource("3_vkcgd")
+template = "Rock"
+pixel_size_3d = 0.005
+collision_circle_radius = 100.0
+
+[node name="Rock3" type="Sprite2D" parent="."]
+position = Vector2(200.00002, -110)
+scale = Vector2(0.019841786, 0.019841786)
+texture = ExtResource("1_e73ws")
+offset = Vector2(0, -1200)
+script = ExtResource("3_vkcgd")
+template = "Rock"
+pixel_size_3d = 0.005
+collision_circle_radius = 100.0
