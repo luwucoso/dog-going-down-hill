@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://flikp7qgdhqt"]
 
-[ext_resource type="Texture2D" uid="uid://d4m22k4tnwijc" path="res://doggo.png" id="1_fbudy"]
 [ext_resource type="ArrayMesh" uid="uid://begc6r0paod3" path="res://cone.obj.res" id="2_0m7cd"]
+[ext_resource type="Texture2D" uid="uid://bt1x5sn5ekpr8" path="res://back_sprite.png" id="2_2ihbs"]
 [ext_resource type="Script" uid="uid://bodi8bltyl0j7" path="res://scripts/hero_controller.gd" id="3_2ihbs"]
 [ext_resource type="Script" uid="uid://bks2rd3fi14s0" path="res://scripts/obstacles_controller.gd" id="4_1qy1k"]
 [ext_resource type="Script" uid="uid://dk5abxpobi3ek" path="res://scripts/sizing_controller.gd" id="5_3n40r"]
@@ -215,6 +215,81 @@ tracks/7/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_2ihbs"]
+resource_name = "diediedie"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:billboard")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2, 0), Vector3(5, 12.23, -1.28)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.62133723, -1.5707964, 0), Vector3(-0.9215338, -0.040142573, -3.216642)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3n40r"]
 _data = {
 &"RESET": SubResource("Animation_1qy1k"),
@@ -268,10 +343,10 @@ shape = SubResource("SphereShape3D_fbudy")
 debug_color = Color(0.98225373, 0, 0.36802125, 0.41960785)
 
 [node name="Player" type="Sprite3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(0.11336756, 0, 0, 0, 0.11336756, 0, 0, 0, 0.11336756, 0, 2, 0)
 billboard = 1
 double_sided = false
-texture = ExtResource("1_fbudy")
+texture = ExtResource("2_2ihbs")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.816328, 0)
