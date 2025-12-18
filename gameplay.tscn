@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://flikp7qgdhqt"]
+[gd_scene load_steps=18 format=3 uid="uid://flikp7qgdhqt"]
 
 [ext_resource type="Texture2D" uid="uid://d4m22k4tnwijc" path="res://doggo.png" id="1_fbudy"]
 [ext_resource type="ArrayMesh" uid="uid://begc6r0paod3" path="res://cone.obj.res" id="2_0m7cd"]
@@ -7,14 +7,180 @@
 [ext_resource type="Script" uid="uid://dk5abxpobi3ek" path="res://scripts/sizing_controller.gd" id="5_3n40r"]
 [ext_resource type="Script" uid="uid://uee7a1kwr5id" path="res://scripts/level_loader.gd" id="6_45aep"]
 [ext_resource type="PackedScene" uid="uid://cseplt54b6sbm" path="res://level_template.tscn" id="7_tyrfw"]
+[ext_resource type="Script" uid="uid://dkwhivhldphx3" path="res://scripts/death_controller.gd" id="8_2ihbs"]
+[ext_resource type="SpriteFrames" uid="uid://c57d4onb2vlon" path="res://cleanboom/kaboom.tres" id="9_1qy1k"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2qyw1"]
 radius = 1.8044484
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fbudy"]
+radius = 1.3139018
+
+[sub_resource type="Animation" id="Animation_2ihbs"]
+resource_name = "diediedie"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:billboard")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2, 0), Vector3(5, 12.23, -1.28)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.62133723, -1.5707964, 0), Vector3(-0.9215338, -0.040142573, -3.216642)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_1qy1k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:billboard")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite3D:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite3D:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3n40r"]
+_data = {
+&"RESET": SubResource("Animation_1qy1k"),
+&"diediedie": SubResource("Animation_2ihbs")
+}
 
 [sub_resource type="Curve" id="Curve_abgm2"]
 _limits = [0.0, 0.6, -6.0, 30.0]
 _data = [Vector2(19.595375, 0.19532502), 0.0, 0.0, 0, 0, Vector2(30, 0), -0.0031273502, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Curve" id="Curve_fbudy"]
+_limits = [0.0, 12.0, -25.0, 25.0]
+_data = [Vector2(-25, 12), 0.0, -0.48, 0, 1, Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(25, 12), 0.48, 0.0, 1, 0]
+point_count = 3
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2qyw1"]
 
@@ -24,31 +190,59 @@ point_count = 2
 transform = Transform3D(1, 0, 0, 0, 0.4711043, 0.8820776, 0, -0.8820776, 0.4711043, -6.584358, 13.035212, 42.759968)
 sky_mode = 1
 
-[node name="Player" type="Sprite3D" parent="."]
+[node name="Player" type="Node3D" parent="."]
+
+[node name="Cone_obj" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.584358, 4.8331184, 0)
+mesh = ExtResource("2_0m7cd")
+skeleton = NodePath("../Player")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(-4.0633953e-08, 0.36857888, -0.9295965, 1.6111095e-08, 0.9295965, 0.36857888, 1, 0, -4.371139e-08, -5.5, 7.5, 0)
+current = true
+
+[node name="collision" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.026, 2, -0.231)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1951394, 0, 0)
+shape = SubResource("SphereShape3D_2qyw1")
+
+[node name="hurtbox" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.24265683)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/hurtbox"]
+shape = SubResource("SphereShape3D_fbudy")
+debug_color = Color(0.98225373, 0, 0.36802125, 0.41960785)
+
+[node name="Player" type="Sprite3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 billboard = 1
 double_sided = false
 texture = ExtResource("1_fbudy")
 
-[node name="Cone_obj" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.584358, 2.8331184, 0)
-mesh = ExtResource("2_0m7cd")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.816328, 0)
+visible = false
+pixel_size = 0.0025
+billboard = 1
+sprite_frames = ExtResource("9_1qy1k")
+autoplay = "default"
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(-4.0633953e-08, 0.36857888, -0.9295965, 1.6111095e-08, 0.9295965, 0.36857888, 1, 0, -4.371139e-08, -5.5, 5.5, 0)
-current = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+&"": SubResource("AnimationLibrary_3n40r")
+}
 
-[node name="collision" type="Area3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0258226, 0.010887861, -0.23120403)
-collision_layer = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/collision"]
-shape = SubResource("SphereShape3D_2qyw1")
-
-[node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("sprite", "collision")]
+[node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("player_root", "sprite", "wall_collision", "hurtbox")]
 script = ExtResource("3_2ihbs")
-sprite = NodePath("../Player")
-collision = NodePath("../Player/collision")
+player_root = NodePath("../Player")
+sprite = NodePath("../Player/Player")
+wall_collision = NodePath("../Player/collision")
+hurtbox = NodePath("../Player/hurtbox")
 debug_speed = 15.0
 metadata/_custom_type_script = "uid://bodi8bltyl0j7"
 
@@ -57,9 +251,11 @@ script = ExtResource("4_1qy1k")
 sizing_controller = NodePath("../SizingController")
 metadata/_custom_type_script = "uid://bks2rd3fi14s0"
 
-[node name="SizingController" type="Node" parent="."]
+[node name="SizingController" type="Node" parent="." node_paths=PackedStringArray("player_center")]
 script = ExtResource("5_3n40r")
+player_center = NodePath("../Player")
 x_position_scale = SubResource("Curve_abgm2")
+z_position_scale = SubResource("Curve_fbudy")
 metadata/_custom_type_script = "uid://dk5abxpobi3ek"
 
 [node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller", "sizing_controller", "left_wall_collision", "right_wall_collision")]
@@ -70,6 +266,13 @@ sizing_controller = NodePath("../SizingController")
 left_wall_collision = NodePath("../walls/left_wall_collision")
 right_wall_collision = NodePath("../walls/right_wall_collision")
 metadata/_custom_type_script = "uid://uee7a1kwr5id"
+
+[node name="DeathController" type="Node" parent="." node_paths=PackedStringArray("hero_controller", "obstacle_controller", "animation")]
+script = ExtResource("8_2ihbs")
+hero_controller = NodePath("../HeroController")
+obstacle_controller = NodePath("../ObstraclesController")
+animation = NodePath("../Player/AnimationPlayer")
+metadata/_custom_type_script = "uid://dkwhivhldphx3"
 
 [node name="walls" type="Area3D" parent="."]
 collision_mask = 0

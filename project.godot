@@ -42,6 +42,11 @@ move_right={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="wall collision"
+3d_physics/layer_2="obstacle collision"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
