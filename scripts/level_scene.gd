@@ -5,12 +5,17 @@ class_name LevelScene extends Node2D
 @export var bounds_node: Sprite2D
 var bounds: Rect2
 
+var amount_of_flags: int = 0
+
 func _ready() -> void:
 	assert(bounds_node, "needs bounds!")
 	bounds = bounds_node.get_rect();
 	bounds.position += bounds_node.position
 	bounds.size *= bounds_node.scale
 	bounds_node.free();
+	for node in get_children():
+		if node as Flag:
+			amount_of_flags += 1;
 
 func get_left_boundary_start() -> Vector2:
 	return Vector2(

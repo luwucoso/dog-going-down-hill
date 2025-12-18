@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	if not allow_movement: return
 	for obstacle in obstacles:
 		obstacle.position.x -= speed * delta
-		if obstacle.position.x <= -6:
+		if obstacle.position.x <= -15:
 			obstacles.erase(obstacle)
 			sizing_controller.remove_object(obstacle)
 			obstacle.queue_free()

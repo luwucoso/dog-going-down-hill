@@ -22,7 +22,22 @@ func _ready() -> void:
 	wall_collision.area_entered.connect(entered_wall)
 	wall_collision.area_exited.connect(exited_wall)
 	hurtbox.area_entered.connect(hurtbox_touched)
+	flagbox.area_entered.connect(flag_collision)
 	pass  # Replace with function body.
+
+func flag_collision(other: Area3D):
+	var parent := other.get_parent() as Node3D
+	if not parent: return;
+	
+	var sprite := parent.get_child(0) as AnimatedSprite3D
+	if not sprite: return
+	
+	sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	sprite.rotation_degrees = Vector3(90, 90, 0)
+	sprite.position.y += 0.5
+	
+	print("got flag!")
+	pass
 
 func hurtbox_touched(_other: Area3D) -> void:
 	frikin_died.emit()

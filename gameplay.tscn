@@ -225,7 +225,7 @@ _data = {
 }
 
 [sub_resource type="Curve" id="Curve_abgm2"]
-_limits = [0.0, 0.6, -6.0, 30.0]
+_limits = [0.0, 0.6, -15.0, 30.0]
 _data = [Vector2(19.595375, 0.19532502), 0.0, 0.0, 0, 0, Vector2(30, 0), -0.0031273502, 0.0, 0, 0]
 point_count = 2
 
@@ -330,6 +330,7 @@ script = ExtResource("5_3n40r")
 player_center = NodePath("../Player")
 x_position_scale = SubResource("Curve_abgm2")
 z_position_scale = SubResource("Curve_fbudy")
+near_plane_distance = -15.0
 metadata/_custom_type_script = "uid://dk5abxpobi3ek"
 
 [node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller", "sizing_controller", "hero_controller", "left_wall_collision", "right_wall_collision")]

@@ -25,6 +25,7 @@ func get_3d() -> Node3D:
 	node.position.x = -position.y / Global.scale_modifier
 	node.position.z = position.x / Global.scale_modifier
 	node.add_child(sprite)
+	node.add_child(area3d)
 	return node
 
 func make_pretty() -> void:
