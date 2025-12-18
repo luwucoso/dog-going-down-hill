@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cd46i7gf3mfg"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cd46i7gf3mfg"]
 
-[ext_resource type="Texture2D" uid="uid://bkyl12go56xf2" path="res://krita/flag/frame0000.png" id="1_vrxqi"]
-[ext_resource type="Texture2D" uid="uid://ub403gf7fv4u" path="res://krita/flag/frame0003.png" id="2_wh5vy"]
-[ext_resource type="Texture2D" uid="uid://cem6uh58efeo4" path="res://krita/flag/frame0006.png" id="3_vpvde"]
+[ext_resource type="Texture2D" uid="uid://5ak3ieicm3mt" path="res://krita/flag/frame0000.png" id="1_vrxqi"]
+[ext_resource type="Texture2D" uid="uid://c4igyp7q8qhbq" path="res://krita/flag/frame0003.png" id="2_wh5vy"]
+[ext_resource type="Texture2D" uid="uid://dybe56mdvwk5y" path="res://krita/flag/frame0006.png" id="3_vpvde"]
+[ext_resource type="Texture2D" uid="uid://crmia1fx2rs3v" path="res://krita/flag/pole.png" id="4_wh5vy"]
 
 [resource]
 animations = [{
@@ -18,5 +19,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wh5vy")
+}],
+"loop": true,
+"name": &"fallen",
+"speed": 1.0
 }]

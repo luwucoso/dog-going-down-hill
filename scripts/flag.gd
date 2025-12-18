@@ -7,6 +7,7 @@ func get_3d() -> Node3D:
 	sprite.offset = Vector2(250, 600)
 	sprite.pixel_size = 0.025
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	sprite.play("default")
 	
 	var shape := CollisionShape3D.new();
 	

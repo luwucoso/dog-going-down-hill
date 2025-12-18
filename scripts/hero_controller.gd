@@ -35,6 +35,7 @@ func flag_collision(other: Area3D):
 	sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	sprite.rotation_degrees = Vector3(90, 90, 0)
 	sprite.position.y += 0.5
+	sprite.play("fallen")
 	
 	print("got flag!")
 	pass
