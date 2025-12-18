@@ -32,10 +32,7 @@ offset = Vector2(0, -1200)
 script = ExtResource("3_smkg2")
 template = "Rock"
 pixel_size_3d = 0.005
-<<<<<<< HEAD
-=======
 collision_circle_radius = 2.0
->>>>>>> dbb9103 (basic loose state and collisions igggggg)
 
 [node name="Obstacle13" type="Sprite2D" parent="."]
 position = Vector2(-297, -2677.9998)
@@ -45,10 +42,7 @@ offset = Vector2(0, -1200)
 script = ExtResource("3_smkg2")
 template = "Rock"
 pixel_size_3d = 0.005
-<<<<<<< HEAD
-=======
 collision_circle_radius = 2.0
->>>>>>> dbb9103 (basic loose state and collisions igggggg)
 
 [node name="Obstacle14" type="Sprite2D" parent="."]
 position = Vector2(-158.00002, -2672.0002)
@@ -58,10 +52,7 @@ offset = Vector2(0, -1200)
 script = ExtResource("3_smkg2")
 template = "Rock"
 pixel_size_3d = 0.005
-<<<<<<< HEAD
-=======
 collision_circle_radius = 2.0
->>>>>>> dbb9103 (basic loose state and collisions igggggg)
 
 [node name="Obstacle15" type="Sprite2D" parent="."]
 position = Vector2(341.99994, -2661.0002)
@@ -71,10 +62,7 @@ offset = Vector2(0, -1200)
 script = ExtResource("3_smkg2")
 template = "Rock"
 pixel_size_3d = 0.005
-<<<<<<< HEAD
-=======
 collision_circle_radius = 2.0
->>>>>>> dbb9103 (basic loose state and collisions igggggg)
 
 [node name="Obstacle16" type="Sprite2D" parent="."]
 position = Vector2(86.000015, -2433)
@@ -84,10 +72,7 @@ offset = Vector2(0, -1200)
 script = ExtResource("3_smkg2")
 template = "Rock"
 pixel_size_3d = 0.005
-<<<<<<< HEAD
-=======
 collision_circle_radius = 2.0
->>>>>>> dbb9103 (basic loose state and collisions igggggg)
 
 [node name="Obstacle2" type="Sprite2D" parent="."]
 position = Vector2(137, -1876.9999)
