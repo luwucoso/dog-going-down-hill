@@ -10,7 +10,7 @@ class_name HeroController extends Node
 # emmited when the player frikin dies
 signal frikin_died
 
-@export var debug_speed: float = 1
+@export var speed: float = 1
 
 var left_block: bool = false
 var right_block: bool = false
@@ -54,5 +54,5 @@ func _physics_process(delta: float) -> void:
 		return
 	last_moved_direction = movement_axis
 
-	player_root.position.z += movement_axis * debug_speed * delta
+	player_root.position.z += movement_axis * speed * delta
 	pass

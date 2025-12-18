@@ -1,6 +1,7 @@
 class_name LevelScene extends Node2D
 
-@export var speed: float = 1
+@export var player_speed: float = 10
+@export var obstacles_speed: float = 20
 @export var bounds_node: Sprite2D
 var bounds: Rect2
 
@@ -16,7 +17,6 @@ func get_left_boundary_start() -> Vector2:
 		bounds.position.x,
 		bounds.position.y,
 	)
-
 
 func get_left_boundary_end() -> Vector2:
 	return Vector2(

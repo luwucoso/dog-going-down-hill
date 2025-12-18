@@ -4,6 +4,7 @@ class_name LevelLoader extends Node
 
 @export var obstacles_controller: ObstraclesController
 @export var sizing_controller: SizingController
+@export var hero_controller: HeroController
 
 @export var left_wall_collision: CollisionShape3D
 @export var right_wall_collision: CollisionShape3D
@@ -61,6 +62,8 @@ func _ready() -> void:
 	var level: LevelScene = level_scene.instantiate() as LevelScene
 	self.add_child(level)
 	print("loading level: ", level.name)
+	hero_controller.speed = level.player_speed
+	obstacles_controller.speed = level.obstacles_speed
 	load_obstacles(level.get_children())
 	make_barrier(level)
 	make_fences(level)

@@ -194,4 +194,3 @@ template = "Flag"
 pixel_size_3d = 0.05
 collision_type = null
 collision_circle_radius = null
-collision_offset = null
