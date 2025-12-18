@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cmkywl4ubiqq6" path="res://rock.png" id="2_x24lp"]
 [ext_resource type="Script" uid="uid://bm3hbd6ygyvte" path="res://scripts/obstacle.gd" id="3_smkg2"]
 [ext_resource type="Texture2D" uid="uid://j8o6hyx2lj7j" path="res://tree.png" id="4_smkg2"]
-[ext_resource type="Texture2D" uid="uid://dlwbk7mohms20" path="res://flag.png" id="5_626v6"]
+[ext_resource type="Script" uid="uid://bjr4mugbmng0r" path="res://scripts/flag.gd" id="6_a617u"]
 
 [sub_resource type="Gradient" id="Gradient_yqaxe"]
 colors = PackedColorArray(0.52511823, 0.5165763, 0.61617017, 1, 0.52511823, 0.5165763, 0.61617017, 1)
@@ -184,13 +184,12 @@ template = "Rock"
 pixel_size_3d = 0.005
 collision_circle_radius = 2.0
 
-[node name="Flag" type="Sprite2D" parent="."]
-position = Vector2(147, -1998)
-scale = Vector2(0.12122691, 0.12122691)
-texture = ExtResource("5_626v6")
-offset = Vector2(0, -1200)
-script = ExtResource("3_smkg2")
-template = "Flag"
-pixel_size_3d = 0.05
-collision_type = null
-collision_circle_radius = null
+[node name="Flag5" type="Node2D" parent="."]
+position = Vector2(167, -2155)
+script = ExtResource("6_a617u")
+metadata/_custom_type_script = "uid://bjr4mugbmng0r"
+
+[node name="Flag6" type="Node2D" parent="."]
+position = Vector2(77, -705)
+script = ExtResource("6_a617u")
+metadata/_custom_type_script = "uid://bjr4mugbmng0r"

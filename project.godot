@@ -46,6 +46,7 @@ move_right={
 
 3d_physics/layer_1="wall collision"
 3d_physics/layer_2="obstacle collision"
+3d_physics/layer_3="flag collision"
 
 [rendering]
 

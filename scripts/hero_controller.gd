@@ -6,6 +6,7 @@ class_name HeroController extends Node
 @export var sprite: Sprite3D
 @export var wall_collision: Area3D
 @export var hurtbox: Area3D
+@export var flagbox: Area3D
 
 # emmited when the player frikin dies
 signal frikin_died

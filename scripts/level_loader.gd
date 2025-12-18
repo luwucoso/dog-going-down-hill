@@ -9,6 +9,14 @@ class_name LevelLoader extends Node
 @export var left_wall_collision: CollisionShape3D
 @export var right_wall_collision: CollisionShape3D
 
+func load_flags(from: Array[Node]):
+	for template in from:
+		var flag := template as Flag
+		if not flag: continue
+		var node := flag.get_3d()
+		add_sibling.call_deferred(node)
+		obstacles_controller.add_obstacle(node)
+
 func load_obstacles(from: Array[Node]):
 	for template in from:
 		var obstacle := template as Obstacle
@@ -65,6 +73,7 @@ func _ready() -> void:
 	hero_controller.speed = level.player_speed
 	obstacles_controller.speed = level.obstacles_speed
 	load_obstacles(level.get_children())
+	load_flags(level.get_children())
 	make_barrier(level)
 	make_fences(level)
 

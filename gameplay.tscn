@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://flikp7qgdhqt"]
+[gd_scene load_steps=19 format=3 uid="uid://flikp7qgdhqt"]
 
 [ext_resource type="ArrayMesh" uid="uid://begc6r0paod3" path="res://cone.obj.res" id="2_0m7cd"]
 [ext_resource type="Texture2D" uid="uid://bt1x5sn5ekpr8" path="res://back_sprite.png" id="2_2ihbs"]
@@ -15,6 +15,9 @@ radius = 1.8044484
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fbudy"]
 radius = 1.3139018
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3n40r"]
+radius = 1.4180199
 
 [sub_resource type="Animation" id="Animation_1qy1k"]
 length = 0.001
@@ -255,17 +258,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.026, 2, -0.231)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1951394, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1951394, 0, 0.22739375)
 shape = SubResource("SphereShape3D_2qyw1")
 
 [node name="hurtbox" type="Area3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.24265683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.015263081)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/hurtbox"]
 shape = SubResource("SphereShape3D_fbudy")
 debug_color = Color(0.98225373, 0, 0.36802125, 0.41960785)
+
+[node name="flagbox" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.22739375)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/flagbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14543438, 2.2268884, -0.2123518)
+shape = SubResource("SphereShape3D_3n40r")
+debug_color = Color(0.6163531, 0.536567, 0, 0.41960785)
 
 [node name="Player" type="Sprite3D" parent="Player"]
 transform = Transform3D(0.11336756, 0, 0, 0, 0.11336756, 0, 0, 0, 0.11336756, 0, 2, 0)
@@ -298,12 +311,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("player_root", "sprite", "wall_collision", "hurtbox")]
+[node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("player_root", "sprite", "wall_collision", "hurtbox", "flagbox")]
 script = ExtResource("3_2ihbs")
 player_root = NodePath("../Player")
 sprite = NodePath("../Player/Player")
 wall_collision = NodePath("../Player/collision")
 hurtbox = NodePath("../Player/hurtbox")
+flagbox = NodePath("../Player/flagbox")
 metadata/_custom_type_script = "uid://bodi8bltyl0j7"
 
 [node name="ObstraclesController" type="Node" parent="." node_paths=PackedStringArray("sizing_controller")]
