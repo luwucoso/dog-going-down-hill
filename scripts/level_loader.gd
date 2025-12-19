@@ -26,6 +26,31 @@ func load_obstacles(from: Array[Node]):
 		add_sibling.call_deferred(node)
 		obstacles_controller.add_obstacle(node)
 
+func make_ending_tape(level: LevelScene) -> void:
+	const tape_separation: float = 6.14
+	
+	var tape_nodes := Node3D.new()
+	tape_nodes.name = "endingtapes"
+	var x_pos: float = level.bounds.position.y / Global.scale_modifier
+	var start_z: float = level.bounds.position.x / Global.scale_modifier
+	start_z -= 6 # a little margin helps the medicine go down
+	var size_z: float = level.bounds.size.x / Global.scale_modifier
+	size_z += 6 # same
+	var current_size: float = 0
+	while (current_size < size_z):
+		var node := Sprite3D.new()
+		node.texture = preload("res://krita/endingtape/endingtape.png")
+		node.axis = Vector3.AXIS_X
+		node.pixel_size = 0.0155
+		node.offset.y = 1000
+		node.position.x = -x_pos
+		node.position.z = start_z + current_size + tape_separation 
+		tape_nodes.add_child(node)
+		obstacles_controller.add_obstacle(node)
+		current_size += tape_separation
+	
+	add_sibling.call_deferred(tape_nodes)
+
 func make_barrier(level: LevelScene) -> void:
 	left_wall_collision.position.z = level.bounds.position.x / Global.scale_modifier
 	right_wall_collision.position.z = level.bounds.end.x / Global.scale_modifier
@@ -77,6 +102,7 @@ func _ready() -> void:
 	load_flags(level.get_children())
 	make_barrier(level)
 	make_fences(level)
+	make_ending_tape(level)
 	ui_controls.flag_count = level.amount_of_flags
 	ui_controls.flags_got = 0
 	ui_controls.make_knobs()
