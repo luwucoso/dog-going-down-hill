@@ -10,6 +10,8 @@ class_name HeroController extends Node
 
 # emmited when the player frikin dies
 signal frikin_died
+# emmited when the player touches a flag
+signal got_flag
 
 @export var speed: float = 1
 
@@ -29,15 +31,15 @@ func flag_collision(other: Area3D):
 	var parent := other.get_parent() as Node3D
 	if not parent: return;
 	
-	var sprite := parent.get_child(0) as AnimatedSprite3D
-	if not sprite: return
+	var flag_sprite := parent.get_child(0) as AnimatedSprite3D
+	if not flag_sprite: return
 	
-	sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	sprite.rotation_degrees = Vector3(90, 90, 0)
-	sprite.position.y += 0.5
-	sprite.play("fallen")
+	flag_sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	flag_sprite.rotation_degrees = Vector3(90, 90, 0)
+	flag_sprite.position.y += 0.5
+	flag_sprite.play("fallen")
 	
-	print("got flag!")
+	got_flag.emit()
 	pass
 
 func hurtbox_touched(_other: Area3D) -> void:

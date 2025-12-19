@@ -10,7 +10,6 @@ func get_3d() -> Node3D:
 	sprite.play("default")
 	
 	var shape := CollisionShape3D.new();
-	
 	shape.position = Vector3(0, 10, 0)
 	var sphere := SphereShape3D.new();
 	sphere.radius = 10

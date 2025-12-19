@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://flikp7qgdhqt"]
+[gd_scene load_steps=22 format=3 uid="uid://flikp7qgdhqt"]
 
 [ext_resource type="ArrayMesh" uid="uid://begc6r0paod3" path="res://cone.obj.res" id="2_0m7cd"]
 [ext_resource type="Texture2D" uid="uid://bt1x5sn5ekpr8" path="res://back_sprite.png" id="2_2ihbs"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cseplt54b6sbm" path="res://level_template.tscn" id="7_tyrfw"]
 [ext_resource type="Script" uid="uid://dkwhivhldphx3" path="res://scripts/death_controller.gd" id="8_2ihbs"]
 [ext_resource type="SpriteFrames" uid="uid://c57d4onb2vlon" path="res://cleanboom/kaboom.tres" id="9_1qy1k"]
+[ext_resource type="Script" uid="uid://iu7h81dblaj" path="res://scripts/knobs_controller.gd" id="10_1qy1k"]
+[ext_resource type="PackedScene" uid="uid://c7t55g7614sdq" path="res://ui_controls.tscn" id="11_3n40r"]
+[ext_resource type="Script" uid="uid://d4mnc5xtrsl3y" path="res://scripts/flags_controller.gd" id="11_45aep"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2qyw1"]
 radius = 1.8044484
@@ -242,6 +245,8 @@ point_count = 3
 transform = Transform3D(1, 0, 0, 0, 0.4711043, 0.8820776, 0, -0.8820776, 0.4711043, -6.584358, 13.035212, 42.759968)
 sky_mode = 1
 
+[node name="UIControls" parent="." instance=ExtResource("11_3n40r")]
+
 [node name="Player" type="Node3D" parent="."]
 
 [node name="Cone_obj" type="MeshInstance3D" parent="Player"]
@@ -333,22 +338,33 @@ z_position_scale = SubResource("Curve_fbudy")
 near_plane_distance = -15.0
 metadata/_custom_type_script = "uid://dk5abxpobi3ek"
 
-[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller", "sizing_controller", "hero_controller", "left_wall_collision", "right_wall_collision")]
-script = ExtResource("6_45aep")
-level_scene = ExtResource("7_tyrfw")
-obstacles_controller = NodePath("../ObstraclesController")
-sizing_controller = NodePath("../SizingController")
-hero_controller = NodePath("../HeroController")
-left_wall_collision = NodePath("../walls/left_wall_collision")
-right_wall_collision = NodePath("../walls/right_wall_collision")
-metadata/_custom_type_script = "uid://uee7a1kwr5id"
-
 [node name="DeathController" type="Node" parent="." node_paths=PackedStringArray("hero_controller", "obstacle_controller", "animation")]
 script = ExtResource("8_2ihbs")
 hero_controller = NodePath("../HeroController")
 obstacle_controller = NodePath("../ObstraclesController")
 animation = NodePath("../Player/AnimationPlayer")
 metadata/_custom_type_script = "uid://dkwhivhldphx3"
+
+[node name="KnobsController" type="Node" parent="."]
+script = ExtResource("10_1qy1k")
+metadata/_custom_type_script = "uid://iu7h81dblaj"
+
+[node name="FlagsController" type="Node" parent="." node_paths=PackedStringArray("hero_controller", "ui_controls")]
+script = ExtResource("11_45aep")
+hero_controller = NodePath("../HeroController")
+ui_controls = NodePath("../UIControls")
+metadata/_custom_type_script = "uid://d4mnc5xtrsl3y"
+
+[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller", "sizing_controller", "hero_controller", "ui_controls", "left_wall_collision", "right_wall_collision")]
+script = ExtResource("6_45aep")
+level_scene = ExtResource("7_tyrfw")
+obstacles_controller = NodePath("../ObstraclesController")
+sizing_controller = NodePath("../SizingController")
+hero_controller = NodePath("../HeroController")
+ui_controls = NodePath("../UIControls")
+left_wall_collision = NodePath("../walls/left_wall_collision")
+right_wall_collision = NodePath("../walls/right_wall_collision")
+metadata/_custom_type_script = "uid://uee7a1kwr5id"
 
 [node name="walls" type="Area3D" parent="."]
 collision_mask = 0

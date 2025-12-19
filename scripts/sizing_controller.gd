@@ -16,7 +16,7 @@ func add_object(object: Node3D) -> void:
 func remove_object(object: Node3D) -> void:
 	objects_moving.erase(object)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	for object in objects_moving:
 		object.show()
 		if object.position.x <= -far_plane_distance:

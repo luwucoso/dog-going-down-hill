@@ -5,6 +5,7 @@ class_name LevelLoader extends Node
 @export var obstacles_controller: ObstraclesController
 @export var sizing_controller: SizingController
 @export var hero_controller: HeroController
+@export var ui_controls: UIControls
 
 @export var left_wall_collision: CollisionShape3D
 @export var right_wall_collision: CollisionShape3D
@@ -76,8 +77,6 @@ func _ready() -> void:
 	load_flags(level.get_children())
 	make_barrier(level)
 	make_fences(level)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	ui_controls.flag_count = level.amount_of_flags
+	ui_controls.flags_got = 0
+	ui_controls.make_knobs()
