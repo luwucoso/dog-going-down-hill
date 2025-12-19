@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cba0lld57axbq"]
+
+[ext_resource type="Script" uid="uid://c5rw8lof5k5w4" path="res://scripts/level_scene.gd" id="1_gk31l"]
+
+[sub_resource type="Gradient" id="Gradient_yqaxe"]
+colors = PackedColorArray(0.52511823, 0.5165763, 0.61617017, 1, 0.52511823, 0.5165763, 0.61617017, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nm3d5"]
+gradient = SubResource("Gradient_yqaxe")
+width = 1
+
+[node name="TutorialLevel" type="Node2D" node_paths=PackedStringArray("bounds_node")]
+script = ExtResource("1_gk31l")
+player_speed = 1.0
+obstacles_speed = 1.5
+bounds_node = NodePath("bounds")
+
+[node name="bounds" type="Sprite2D" parent="."]
+position = Vector2(-384, -1685.9998)
+scale = Vector2(768, 1685.9998)
+texture = SubResource("GradientTexture1D_nm3d5")
+centered = false
