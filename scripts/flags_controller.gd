@@ -2,7 +2,6 @@ class_name FlagsController extends Node
 
 @export var hero_controller: HeroController
 @export var ui_controls: UIControls
-
 var flags_gotten: int = 0
 
 func got_flag():

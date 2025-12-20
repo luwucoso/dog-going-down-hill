@@ -5,10 +5,12 @@ class_name LevelLoader extends Node
 @export var obstacles_controller: ObstraclesController
 @export var sizing_controller: SizingController
 @export var hero_controller: HeroController
+@export var win_controller: WinController
 @export var ui_controls: UIControls
 
 @export var left_wall_collision: CollisionShape3D
 @export var right_wall_collision: CollisionShape3D
+@export var ending_trigger: Area3D
 
 func load_flags(from: Array[Node]):
 	for template in from:
@@ -54,6 +56,10 @@ func make_ending_tape(level: LevelScene) -> void:
 func make_barrier(level: LevelScene) -> void:
 	left_wall_collision.position.z = level.bounds.position.x / Global.scale_modifier
 	right_wall_collision.position.z = level.bounds.end.x / Global.scale_modifier
+
+func move_ending_trigger(level: LevelScene) -> void:
+	ending_trigger.position.x = -level.bounds.position.y / Global.scale_modifier
+	obstacles_controller.add_obstacle(ending_trigger)
 
 func make_fences(level: LevelScene) -> void:
 	var fences_node := Node3D.new()
@@ -103,6 +109,8 @@ func _ready() -> void:
 	make_barrier(level)
 	make_fences(level)
 	make_ending_tape(level)
+	move_ending_trigger(level)
+	win_controller.amount_of_flags = level.amount_of_flags
 	ui_controls.flag_count = level.amount_of_flags
 	ui_controls.flags_got = 0
 	ui_controls.make_knobs()

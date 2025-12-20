@@ -7,11 +7,14 @@ class_name HeroController extends Node
 @export var wall_collision: Area3D
 @export var hurtbox: Area3D
 @export var flagbox: Area3D
+@export var endingbox: Area3D
 
 # emmited when the player frikin dies
 signal frikin_died
 # emmited when the player touches a flag
 signal got_flag
+# emmited when the player finishes the level
+signal level_beat
 
 @export var speed: float = 1
 
@@ -25,7 +28,11 @@ func _ready() -> void:
 	wall_collision.area_exited.connect(exited_wall)
 	hurtbox.area_entered.connect(hurtbox_touched)
 	flagbox.area_entered.connect(flag_collision)
-	pass  # Replace with function body.
+	endingbox.area_entered.connect(finish_trigger_collision)
+
+func finish_trigger_collision(_other: Area3D):
+	level_beat.emit()
+	pass
 
 func flag_collision(other: Area3D):
 	var parent := other.get_parent() as Node3D

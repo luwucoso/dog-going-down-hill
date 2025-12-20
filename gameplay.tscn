@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://flikp7qgdhqt"]
+[gd_scene load_steps=25 format=3 uid="uid://flikp7qgdhqt"]
 
 [ext_resource type="ArrayMesh" uid="uid://begc6r0paod3" path="res://cone.obj.res" id="2_0m7cd"]
 [ext_resource type="Texture2D" uid="uid://bt1x5sn5ekpr8" path="res://back_sprite.png" id="2_2ihbs"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://iu7h81dblaj" path="res://scripts/knobs_controller.gd" id="10_1qy1k"]
 [ext_resource type="PackedScene" uid="uid://c7t55g7614sdq" path="res://ui_controls.tscn" id="11_3n40r"]
 [ext_resource type="Script" uid="uid://d4mnc5xtrsl3y" path="res://scripts/flags_controller.gd" id="11_45aep"]
+[ext_resource type="Script" uid="uid://br8enxq2ivubl" path="res://scripts/win_controller.gd" id="12_eod45"]
+[ext_resource type="SpriteFrames" uid="uid://6p8ab2ghrwrj" path="res://confetti/frames.tres" id="13_tyrfw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2qyw1"]
 radius = 1.8044484
@@ -27,7 +29,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D:visible")
+tracks/0/path = NodePath("boom:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -75,7 +77,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite3D:animation")
+tracks/4/path = NodePath("boom:animation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -87,7 +89,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite3D:frame")
+tracks/5/path = NodePath("boom:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -99,26 +101,14 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer:visible")
+tracks/6/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_2ihbs"]
@@ -127,7 +117,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D:visible")
+tracks/0/path = NodePath("boom:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -175,7 +165,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite3D:animation")
+tracks/4/path = NodePath("boom:animation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -187,7 +177,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite3D:frame")
+tracks/5/path = NodePath("boom:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -199,26 +189,14 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer:visible")
+tracks/6/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(1, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3n40r"]
@@ -238,6 +216,8 @@ _data = [Vector2(-25, 12), 0.0, -0.48, 0, 1, Vector2(0, 0), 0.0, 0.0, 0, 0, Vect
 point_count = 3
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2qyw1"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_45aep"]
 
 [node name="3dMain" type="Node3D"]
 
@@ -285,13 +265,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14543438, 2.2268884, -0.21
 shape = SubResource("SphereShape3D_3n40r")
 debug_color = Color(0.6163531, 0.536567, 0, 0.41960785)
 
+[node name="endingbox" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.22739375)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/endingbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14543438, 2.2268884, -0.2123518)
+shape = SubResource("SphereShape3D_3n40r")
+debug_color = Color(0.6163531, 0.536567, 0, 0.41960785)
+
 [node name="Player" type="Sprite3D" parent="Player"]
 transform = Transform3D(0.11336756, 0, 0, 0, 0.11336756, 0, 0, 0, 0.11336756, 0, 2, 0)
 billboard = 1
 double_sided = false
 texture = ExtResource("2_2ihbs")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
+[node name="boom" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.816328, 0)
 visible = false
 pixel_size = 0.0025
@@ -300,13 +290,22 @@ sprite_frames = ExtResource("9_1qy1k")
 autoplay = "default"
 frame = 17
 
+[node name="confetti" type="AnimatedSprite3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3276296, 0)
+visible = false
+pixel_size = 0.015
+billboard = 1
+sprite_frames = ExtResource("13_tyrfw")
+autoplay = "default"
+frame = 119
+frame_progress = 1.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {
 &"": SubResource("AnimationLibrary_3n40r")
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer"]
 anchors_preset = 15
@@ -314,15 +313,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
-[node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("player_root", "sprite", "wall_collision", "hurtbox", "flagbox")]
+[node name="HeroController" type="Node" parent="." node_paths=PackedStringArray("player_root", "sprite", "wall_collision", "hurtbox", "flagbox", "endingbox")]
 script = ExtResource("3_2ihbs")
 player_root = NodePath("../Player")
 sprite = NodePath("../Player/Player")
 wall_collision = NodePath("../Player/collision")
 hurtbox = NodePath("../Player/hurtbox")
 flagbox = NodePath("../Player/flagbox")
+endingbox = NodePath("../Player/endingbox")
 metadata/_custom_type_script = "uid://bodi8bltyl0j7"
 
 [node name="ObstraclesController" type="Node" parent="." node_paths=PackedStringArray("sizing_controller")]
@@ -355,15 +355,25 @@ hero_controller = NodePath("../HeroController")
 ui_controls = NodePath("../UIControls")
 metadata/_custom_type_script = "uid://d4mnc5xtrsl3y"
 
-[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller", "sizing_controller", "hero_controller", "ui_controls", "left_wall_collision", "right_wall_collision")]
+[node name="WinController" type="Node" parent="." node_paths=PackedStringArray("hero_controller", "flags_controller", "black_colorrect", "confetti_anim")]
+script = ExtResource("12_eod45")
+hero_controller = NodePath("../HeroController")
+flags_controller = NodePath("../FlagsController")
+black_colorrect = NodePath("../Player/CanvasLayer/ColorRect")
+confetti_anim = NodePath("../Player/confetti")
+metadata/_custom_type_script = "uid://br8enxq2ivubl"
+
+[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("obstacles_controller", "sizing_controller", "hero_controller", "win_controller", "ui_controls", "left_wall_collision", "right_wall_collision", "ending_trigger")]
 script = ExtResource("6_45aep")
 level_scene = ExtResource("7_tyrfw")
 obstacles_controller = NodePath("../ObstraclesController")
 sizing_controller = NodePath("../SizingController")
 hero_controller = NodePath("../HeroController")
+win_controller = NodePath("../WinController")
 ui_controls = NodePath("../UIControls")
 left_wall_collision = NodePath("../walls/left_wall_collision")
 right_wall_collision = NodePath("../walls/right_wall_collision")
+ending_trigger = NodePath("../ending_trigger")
 metadata/_custom_type_script = "uid://uee7a1kwr5id"
 
 [node name="walls" type="Area3D" parent="."]
@@ -376,3 +386,11 @@ shape = SubResource("WorldBoundaryShape3D_2qyw1")
 [node name="left_wall_collision" type="CollisionShape3D" parent="walls"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 8.922562, -6.714277)
 shape = SubResource("WorldBoundaryShape3D_2qyw1")
+
+[node name="ending_trigger" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ending_trigger"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_45aep")
